@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Calculadora </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-input class="display" type="text" [value]="expressao"></ion-input>
+
+  <ion-item lines="none">
+    <ion-label></ion-label>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="limpar()">AC</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="dividir()">(</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="dividir()">)</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="dividir()">/</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="addUm()">1</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addDois()">2</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addTres()">3</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="multiplicar()">*</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="addQuatro()">4</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addCinco()">5</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addSeis()">6</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="subtrair()">-</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="addSete()">7</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addOito()">8</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="addNove()">9</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="somar()">+</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button shape="round" (click)="addZero()">0</ion-button>
+      </ion-col>
+      <ion-col
+        ><ion-button shape="round" (click)="calcular()">.</ion-button>
+      </ion-col>
+      <ion-col
+        ><ion-button shape="round" (click)="calcular()"
+          ><img src="../../assets/icon/delete-icon.svg" alt=""
+        /></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button shape="round" (click)="calcular()">=</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
