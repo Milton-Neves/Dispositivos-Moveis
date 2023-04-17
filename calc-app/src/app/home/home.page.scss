@@ -1,27 +1,17 @@
-// #container {
-//   text-align: center;
+.content {
+  display: flex;
+  justify-content: center;
 
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
+  &-grid {
+    background-color: var(--ion-color-dark);
+    width: 90%;
+    border-radius: 4px;
+    img {
+      width: 100%;
+    }
+  }
 
-// #container strong {
-//   font-size: 20px;
-//   line-height: 26px;
-// }
-
-// #container p {
-//   font-size: 16px;
-//   line-height: 22px;
-
-//   color: #8c8c8c;
-
-//   margin: 0;
-// }
-
-// #container a {
-//   text-decoration: none;
-// }
+  &-result {
+    background-color: var(--ion-color-light);
+  }
+}

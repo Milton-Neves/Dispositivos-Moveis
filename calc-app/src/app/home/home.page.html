@@ -1,26 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title> Calculadora </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-input class="display" type="text" [value]="expressao"></ion-input>
-
+<ion-content class="content">
   <ion-item lines="none">
     <ion-label></ion-label>
+    <ion-input
+      class="content-result"
+      type="text"
+      [value]="expressao"
+    ></ion-input>
   </ion-item>
 
-  <ion-grid>
+  <ion-grid class="content-grid">
     <ion-row>
       <ion-col>
         <ion-button shape="round" (click)="limpar()">AC</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button shape="round" (click)="dividir()">(</ion-button>
+        <ion-button shape="round" (click)="openParentese()">(</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button shape="round" (click)="dividir()">)</ion-button>
+        <ion-button shape="round" (click)="closeParentese()">)</ion-button>
       </ion-col>
       <ion-col>
         <ion-button shape="round" (click)="dividir()">/</ion-button>
@@ -71,18 +74,20 @@
         <ion-button shape="round" (click)="somar()">+</ion-button>
       </ion-col>
     </ion-row>
+
     <ion-row>
       <ion-col>
         <ion-button shape="round" (click)="addZero()">0</ion-button>
       </ion-col>
       <ion-col
-        ><ion-button shape="round" (click)="calcular()">.</ion-button>
+        ><ion-button shape="round" (click)="addPoint()">.</ion-button>
       </ion-col>
       <ion-col
-        ><ion-button shape="round" (click)="calcular()"
+        ><ion-button shape="round" (click)="limpar()"
           ><img src="../../assets/icon/delete-icon.svg" alt=""
         /></ion-button>
       </ion-col>
+
       <ion-col>
         <ion-button shape="round" (click)="calcular()">=</ion-button>
       </ion-col>

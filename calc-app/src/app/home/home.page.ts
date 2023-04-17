@@ -25,6 +25,17 @@ export class HomePage {
     this.expressao += '0';
   }
 
+  openParentese() {
+    this.expressao += '(';
+  }
+  closeParentese() {
+    this.expressao += ')';
+  }
+
+  addPoint() {
+    this.expressao += '.';
+  }
+
   addUm() {
     this.expressao += '1';
   }
