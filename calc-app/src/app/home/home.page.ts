@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { start } from 'repl';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage {
   }
 
   limpar() {
-    this.expressao += '';
+    this.expressao = '';
   }
 
   addZero() {
@@ -76,7 +77,12 @@ export class HomePage {
     this.expressao += '/';
   }
 
+  backspace() {
+    this.expressao = this.expressao.substring(0, this.expressao.length - 1);
+  }
+
   calcular() {
     this.resultado = eval(this.expressao);
+    this.expressao = this.resultado.toString();
   }
 }
