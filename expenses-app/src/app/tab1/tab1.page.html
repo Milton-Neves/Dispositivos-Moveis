@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center"> Nova Despesa </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Motivo: " formControlName="motivo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Valor: "
+          type="number"
+          formControlName="valor"
+        ></ion-input
+        >R$
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Desconto: "
+          type="number"
+          formControlName="desconto"
+        ></ion-input
+        >%
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-select
+            label="Tipo: "
+            placeholder="Selecionar"
+            formControlName="tipo"
+          >
+            <ion-select-option *ngFor="let t of tipo" [value]="t"
+              >{{t}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item class="ion-text-center">
+        <ion-datetime
+          locale="pt-BR"
+          (ionChange)="setDate()"
+          formControlName="data"
+        ></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <ion-alert
+      [isOpen]="isAlertOpen"
+      [message]="message"
+      [buttons]="alertButtons"
+      (didDismiss)="setOpen(false)"
+    ></ion-alert>
+  </form>
+</ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="addExpenses()">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Adicionar Despesa</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="seeExpenses()">
+          <ion-icon name="eye-outline"></ion-icon>
+          <ion-label>Verificar Despesas</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="clear()">
+          <ion-icon name="trash-bin-outline"></ion-icon>
+          <ion-label>Excluir itens</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
