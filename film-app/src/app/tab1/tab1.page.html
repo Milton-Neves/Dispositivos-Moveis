@@ -1,23 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Buscador de Filmes
+      Tab 1
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchMovies()"></ion-searchbar>
+  <ion-item>
+    <ion-input placeholder="Digite um texto" #inputText></ion-input>
+    <ion-button (click)="searchMovies(inputText)">Procurar Filmes</ion-button>
+  </ion-item>
 
   <ion-list>
     <ion-item *ngFor="let movie of movies">
-      <ion-thumbnail slot="start">
-        <img [src]="movie.Poster" alt="Movie Poster">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ movie.Title }}</h2>
-        <p>{{ movie.Year }}</p>
-      </ion-label>
+      <ion-label>{{ movie.Title }}</ion-label>
+      <ion-button (click)="favorite(movie)">Favorito</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

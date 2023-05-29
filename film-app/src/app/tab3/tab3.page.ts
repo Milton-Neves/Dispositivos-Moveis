@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,15 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page {
-  favorites: any[] = [];
-
-  constructor() {}
-
-  ionViewWillEnter() {
-    this.loadFavorites();
+  favoritos: any[];
+  constructor(private movieService: MovieService) {
+    this.favoritos = [];
+    this.getMovies();
   }
 
-  loadFavorites() {
-    // Ainda falta implementar o código para carregar os filmes favoritos
+  getMovies() {
+    this.favoritos = this.movieService.getFavoriteMovies();
   }
 }

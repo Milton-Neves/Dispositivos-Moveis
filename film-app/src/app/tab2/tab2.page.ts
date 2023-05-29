@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+import { Filme } from '../model/filmes';
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -7,14 +9,21 @@ import { MovieService } from '../service/movie.service';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-  movie: any;
-  searchTerm: string = '';
+  movie: Filme;
+  constructor(private movieService: MovieService) {
+    this.movie = new Filme();
+    this.movie.Favorito = false;
+  }
 
-  constructor(private movieService: MovieService) {}
-
-  searchMovie() {
-    this.movieService.getMovie(this.searchTerm).subscribe((response: any) => {
-      this.movie = response;
+  getExactMovie(text: IonInput) {
+    let texto = JSON.stringify(text.value);
+    this.movieService.getExactMovie(texto).subscribe((res) => {
+      texto === '' ? null : (this.movie = res);
     });
+  }
+
+  favorite(movie: any) {
+    movie.Favorito = true;
+    this.movieService.setFavorites(movie);
   }
 }

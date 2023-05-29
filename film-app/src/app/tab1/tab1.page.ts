@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MovieService } from '../service/movie.service';
 import { Filme } from '../model/filmes';
+import { IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -8,16 +9,27 @@ import { Filme } from '../model/filmes';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  movies: Filme[] = [];
-  searchTerm: string = '';
+  movies: Filme[];
+  constructor(private movieService: MovieService) {
+    this.movies = [];
+  }
 
-  constructor(private movieService: MovieService) {}
+  searchMovies(text: IonInput) {
+    let texto = JSON.stringify(text.value);
+    this.movieService.searchMovies(texto).subscribe((res) => {
+      this.movies = Object.values(res)[0];
+      this.favoriteFilme(this.movies);
+    });
+  }
 
-  searchMovies() {
-    this.movieService
-      .searchMovies(this.searchTerm)
-      .subscribe((response: any) => {
-        this.movies = response.Search || [];
-      });
+  favoriteFilme(movies: any) {
+    for (let index = 0; index < this.movies.length; index++) {
+      movies[index].Favorito = false;
+    }
+  }
+
+  favorite(movies: any) {
+    movies.Favorito = true;
+    this.movieService.setFavorites(movies);
   }
 }
