@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Leitor de Textos </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-textarea
+      #textarea
+      [autoGrow]="true"
+      label="text area to read"
+      labelPlacement="floating"
+      fill="outline"
+    ></ion-textarea>
+    <ion-item>
+      <ion-fab-button (click)="speak(textarea)">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button (click)="stop()" color="danger">
+        <ion-icon name="stop"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button (click)="clear(textarea)" color="warning">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+    <ion-item>
+      <label>Taxa</label>
+      <ion-range
+        min="0.0"
+        max="4.0"
+        pin="true"
+        color="primary"
+        (ionChange)="taxaChange($event)"
+      >
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <label>Tom</label>
+      <ion-range
+        min="0.0"
+        max="2.0"
+        pin="true"
+        color="success"
+        (ionChange)="tomChange($event)"
+      >
+      </ion-range>
+    </ion-item>
+  </div>
+</ion-content>
