@@ -20,15 +20,15 @@
       fill="outline"
     ></ion-textarea>
     <ion-item>
-      <ion-fab-button (click)="speak(textarea)">
+      <ion-fab-button (click)="speak(textarea)" color="primary">
         <ion-icon name="play"></ion-icon>
       </ion-fab-button>
 
-      <ion-fab-button (click)="stop()" color="danger">
+      <ion-fab-button (click)="stop()" color="warning">
         <ion-icon name="stop"></ion-icon>
       </ion-fab-button>
 
-      <ion-fab-button (click)="clear(textarea)" color="warning">
+      <ion-fab-button (click)="clear(textarea)" color="danger">
         <ion-icon name="trash"></ion-icon>
       </ion-fab-button>
     </ion-item>

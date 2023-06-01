@@ -14,7 +14,8 @@ import { RangeValue } from '@ionic/core';
 export class HomePage {
   taxa!: RangeValue;
   tom!: RangeValue;
-  constructor() {}
+  constructor(
+  ) {}
 
   public speak = async (text: IonTextarea) => {
     await TextToSpeech.speak({
