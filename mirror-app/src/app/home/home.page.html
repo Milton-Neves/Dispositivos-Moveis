@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Photo Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</ion-content>
+
+<ion-tab-button tab="tab2">
+  <ion-icon name="images"></ion-icon>
+  <ion-label>Photos</ion-label>
+</ion-tab-button>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="6"
+        *ngFor="let photo of photoService.photos; index as position"
+      >
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- ion-fab markup  -->
+</ion-content>
